@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="show">
+        <h1>Welcome to Article Hub!</h1>
+        <h2>Check out below articles...</h2>
+    </div>
+    <div class="articles-container">
+
+        {% for article in articles %}
+
+        <div class="card">
+            <span>{{ forloop.counter }}.</span>
+            <a href="{% url 'article' article.id %}">{{ article.title }}</a>
+            <!-- <p>{{ article.desc|slice:":90" }}...</p> -->
+            <!-- or -->
+            <p>{{ article.desc|truncatechars:80 }}</p>
+            
+        </div>
+
+        {% endfor %}
+    </div>
+
+    
+{% endblock content %}
+
